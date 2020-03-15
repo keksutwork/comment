@@ -92,3 +92,8 @@ C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.csproj.CopyComplete
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.dll
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.pdb
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.dll
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.SqlServer.dll
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.xml
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.SqlServer.xml
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\zh-Hant\EntityFramework.resources.dll

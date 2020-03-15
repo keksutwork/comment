@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MessageDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ArticleData">
+    <Key>
+      <PropertyRef Name="ArticleId" />
+    </Key>
+    <Property Name="ArticleId" Type="Int32" Nullable="false" />
+    <Property Name="PostBy" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClickCount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserAccount" Relationship="Self.FK_ArticleData_ToTable" FromRole="ArticleData" ToRole="UserAccount" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="AccountName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ArticleData" Relationship="Self.FK_ArticleData_ToTable" FromRole="UserAccount" ToRole="ArticleData" />
+  </EntityType>
+  <Association Name="FK_ArticleData_ToTable">
+    <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
+    <End Role="ArticleData" Type="Self.ArticleData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ArticleData">
+        <PropertyRef Name="PostBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MessageDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArticleData" EntityType="Self.ArticleData" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" />
+    <AssociationSet Name="FK_ArticleData_ToTable" Association="Self.FK_ArticleData_ToTable">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="ArticleData" EntitySet="ArticleData" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
