@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MessageBoard.Models;
 using MessageBoard.Models.ViewModel;
-using MessageBoard.Models.CRUDlib;
-using MessageBoard.Models.Interfaces;
-using System.Configuration;
-
+using MessageBoard.Models.ArticleDataModel;
 namespace MessageBoard.Controllers
 {
     public class HomeController : Controller
@@ -19,10 +15,10 @@ namespace MessageBoard.Controllers
         }
 
        public ActionResult MessageBoard()
-        {
-            IArticleDataProvider provider = ArticleDataProviderFactory.CreateArticleDataProvider(ConfigurationManager.AppSettings["environment"]);
-            
-            return View(provider.GetArticles(50));
+        {   
+            IArticleReader reader = ArticleDataControl.CreateArticleReader();
+            IEnumerable<ArticlesViewModel> model = reader.GetArticles(50);
+            return View(model);
         }
     }
 }

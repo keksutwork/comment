@@ -5,9 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MessageBoard.Filters;
 using MessageBoard.Models.ViewModel;
-using MessageBoard.Models.CRUDlib;
-using MessageBoard.Models.Interfaces;
-using System.Configuration;
+using MessageBoard.Models.ArticleDataModel;
 namespace MessageBoard.Controllers
 {
     [UserAuthFilter]
@@ -17,9 +15,8 @@ namespace MessageBoard.Controllers
         // GET: Backend/Index
         public ActionResult Index()
         {
-            //todo: get articles by author
-            IArticleDataProvider provider = ArticleDataProviderFactory.CreateArticleDataProvider(ConfigurationManager.AppSettings["environment"]);
-            IEnumerable<ArticlesViewModel> model = provider.GetArticlesByAuthor(Guid.Parse(Session["UserId"].ToString()));
+            IArticleReader reader = ArticleDataControl.CreateArticleReader();
+            var model = reader.GetArticlesByAuthor(Guid.Parse(Session["UserId"].ToString()));
             return View(model);
         }
 
@@ -31,6 +28,30 @@ namespace MessageBoard.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArticlesViewModel article)
+        {
+            return View();
+        }
+
+        public ActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ArticlesViewModel article)
+        {
+            return View();
+        }
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(ArticlesViewModel article)
         {
             return View();
         }
