@@ -1,6 +1,3 @@
-C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\MessageBoard.dll.config
-C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\MessageBoard.dll
-C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\MessageBoard.pdb
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\roslyn\csc.exe
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\roslyn\csc.exe.config
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\roslyn\csc.rsp
@@ -90,10 +87,13 @@ C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\zh-Hant\System.Web.
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\zh-Hant\System.Web.Http.WebHost.resources.dll
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.csprojAssemblyReference.cache
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.csproj.CopyComplete
-C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.dll
-C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.pdb
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.dll
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.SqlServer.dll
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.xml
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\EntityFramework.SqlServer.xml
 C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\zh-Hant\EntityFramework.resources.dll
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\MessageBoard.dll.config
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\MessageBoard.dll
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\bin\MessageBoard.pdb
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.dll
+C:\Users\CUser\Desktop\comment\MessageBoard\MessageBoard\obj\Debug\MessageBoard.pdb
