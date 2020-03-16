@@ -8,7 +8,6 @@
     <Property Name="PostBy" Type="Guid" Nullable="false" />
     <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ClickCount" Type="Int32" Nullable="false" />
     <NavigationProperty Name="UserAccount" Relationship="Self.FK_ArticleData_ToTable" FromRole="ArticleData" ToRole="UserAccount" />
   </EntityType>
   <EntityType Name="UserAccount">
@@ -17,7 +16,7 @@
     </Key>
     <Property Name="UserId" Type="Guid" Nullable="false" />
     <Property Name="AccountName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="AccountPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountPassword" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ArticleData" Relationship="Self.FK_ArticleData_ToTable" FromRole="UserAccount" ToRole="ArticleData" />
   </EntityType>
   <Association Name="FK_ArticleData_ToTable">

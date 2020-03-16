@@ -13,7 +13,6 @@
           <Property Name="PostBy" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="PostDate" Type="datetime" Nullable="false" />
-          <Property Name="ClickCount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -21,7 +20,7 @@
           </Key>
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="AccountName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="AccountPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AccountPassword" Type="nvarchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <Association Name="FK_ArticleData_ToTable">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />
@@ -55,7 +54,6 @@
           <Property Name="PostBy" Type="Guid" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ClickCount" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UserAccount" Relationship="Self.FK_ArticleData_ToTable" FromRole="ArticleData" ToRole="UserAccount" />
         </EntityType>
         <EntityType Name="UserAccount">
@@ -64,7 +62,7 @@
           </Key>
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="AccountName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="AccountPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountPassword" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ArticleData" Relationship="Self.FK_ArticleData_ToTable" FromRole="UserAccount" ToRole="ArticleData" />
         </EntityType>
         <Association Name="FK_ArticleData_ToTable">
@@ -100,7 +98,6 @@
                 <ScalarProperty Name="PostBy" ColumnName="PostBy" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

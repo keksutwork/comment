@@ -14,6 +14,14 @@ namespace MessageBoard
             // Web API 路由
             config.MapHttpAttributeRoutes();
 
+            //取得文章資料用的路徑
+            config.Routes.MapHttpRoute(
+                name: "GetArticleApi",
+                routeTemplate: "api/{controller}/{AritclePerPage}",
+                defaults: new { AritclePerPage = RouteParameter.Optional}
+            );
+
+            //新增修改刪除文章用的路徑
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

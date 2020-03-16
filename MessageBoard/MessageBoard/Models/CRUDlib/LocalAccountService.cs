@@ -27,7 +27,7 @@ namespace MessageBoard.Models.CRUDlib
 
             //比對資料庫
             UserAccount u = dbEntities.UserAccount.Where(t => t.AccountName == AccountData.AccountName
-                                       && t.AccountPassword == hashPassword).First();
+                                       && t.AccountPassword == hashPassword).FirstOrDefault();
             if (u == null)
             {
                 return null;

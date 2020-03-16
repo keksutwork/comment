@@ -8,7 +8,6 @@
           <ScalarProperty Name="PostBy" ColumnName="PostBy" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-          <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

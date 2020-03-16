@@ -143,7 +143,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ArticleDataController.cs" />
     <Compile Include="Controllers\BackendController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -154,11 +153,13 @@
     <Compile Include="Models\ArticleData.cs">
       <DependentUpon>MessageBoardDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CRUDlib\ArticleDataProviderFactory.cs" />
     <Compile Include="Models\CRUDlib\Hash.cs" />
     <Compile Include="Models\CRUDlib\AccountServiceFactory.cs" />
     <Compile Include="Models\CRUDlib\LocalAccountService.cs" />
+    <Compile Include="Models\CRUDlib\LocalArticleDataProvider.cs" />
     <Compile Include="Models\Interfaces\IAccountService.cs" />
-    <Compile Include="Models\Interfaces\IMessageHandler.cs" />
+    <Compile Include="Models\Interfaces\IArticleDataProvider.cs" />
     <Compile Include="Models\MessageBoardDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,6 +236,9 @@
     <Content Include="Models\MessageBoardDB.edmx.diagram">
       <DependentUpon>MessageBoardDB.edmx</DependentUpon>
     </Content>
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -245,6 +249,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MessageBoard.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -344,6 +349,8 @@
     <Content Include="Views\Backend\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Home\MessageBoard.cshtml" />
+    <Content Include="Views\Backend\Create.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

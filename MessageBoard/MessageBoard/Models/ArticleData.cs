@@ -18,7 +18,6 @@ namespace MessageBoard
         public System.Guid PostBy { get; set; }
         public string Title { get; set; }
         public System.DateTime PostDate { get; set; }
-        public int ClickCount { get; set; }
     
         public virtual UserAccount UserAccount { get; set; }
     }

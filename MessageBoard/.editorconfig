@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0168: 已宣告變數，但從未使用過它
+dotnet_diagnostic.CS0168.severity = none

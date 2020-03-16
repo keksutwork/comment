@@ -8,7 +8,6 @@
     <Property Name="PostBy" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
-    <Property Name="ClickCount" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserAccount">
     <Key>
@@ -16,7 +15,7 @@
     </Key>
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AccountName" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="AccountPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AccountPassword" Type="nvarchar" MaxLength="64" Nullable="false" />
   </EntityType>
   <Association Name="FK_ArticleData_ToTable">
     <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="1" />

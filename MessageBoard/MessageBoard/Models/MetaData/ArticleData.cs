@@ -26,7 +26,7 @@ namespace MessageBoard
             public System.DateTime PostDate { get; set; }
 
             
-            public int ClickCount { get; set; }
+
       }
     }
 }

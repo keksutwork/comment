@@ -11,8 +11,7 @@ namespace MessageBoard
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class UserAccount
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,8 +21,6 @@ namespace MessageBoard
         }
     
         public System.Guid UserId { get; set; }
-        
-        [Required]
         public string AccountName { get; set; }
         public string AccountPassword { get; set; }
     
