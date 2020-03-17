@@ -8,7 +8,7 @@ using MessageBoard.Models.ViewModel;
 using MessageBoard.Models.ArticleDataModel;
 namespace MessageBoard.Controllers
 {
-    [UserAuthFilter]
+    [UserAuthenFilter]
     public class BackendController : Controller
     {
         
@@ -29,30 +29,102 @@ namespace MessageBoard.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArticlesViewModel article)
         {
+            //如果加入成功，導向回後台首頁
+            //失敗回CREATE
+            bool result;
+            if (ModelState.IsValid)
+            {
+                IArticleCreater creater = ArticleDataControl.CreateArticleCreater();
+                result = creater.CreateArticle(article.Title);
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            ModelState.AddModelError("", "不明錯誤");
             return View();
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int articleId)
         {
-            return View();
+            IArticleReader reader = ArticleDataControl.CreateArticleReader();
+            ArticlesViewModel result = reader.GetArticlesById(articleId);
+            if(result != null && result.PostBy == Session["UserId"].ToString())
+            {
+                Session["ArticleId"] = articleId;
+                return View(result);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(ArticlesViewModel article)
+        public ActionResult Edit(string Title)
         {
+            IArticleEditor editor = ArticleDataControl.CreateArticleEditor();
+            try
+            {
+               var result = editor.EditArticle(int.Parse(Session["ArticleId"].ToString()), Title);
+               if(result == true)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError("", "修改錯誤");
+                return View();
+            }
+            finally
+            {
+                Session["ArticleId"] = null;
+            }
+            ModelState.AddModelError("", "修改錯誤");
             return View();
         }
 
+        public ActionResult Delete(int articleId)
+        {
+            IArticleReader reader = ArticleDataControl.CreateArticleReader();
+            ArticlesViewModel result = reader.GetArticlesById(articleId);
+            if (result != null && result.PostBy == Session["UserId"].ToString())
+            {
+                Session["ArticleId"] = articleId;
+                return View(result);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.NotFound);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete()
         {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(ArticlesViewModel article)
-        {
+            try
+            {
+                int articleId = int.Parse(Session["ArticleId"].ToString());
+                IArticleDeleter deleter = ArticleDataControl.CreateArticleDeleter();
+                var result = deleter.DeleteArticle(articleId);
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            catch
+            {
+                ModelState.AddModelError("", "刪除錯誤");
+                return View();
+            }
+            finally
+            {
+                Session["ArticleId"] = null;
+            }
+            ModelState.AddModelError("", "刪除錯誤");
             return View();
         }
 

@@ -7,6 +7,9 @@ using MessageBoard.Models.ViewModel;
 using MessageBoard.Models.MethodLibaray;
 using System.Configuration;
 using MessageBoard.Models.AccountDataModel;
+using System.Security.Principal;
+using System.Diagnostics;
+
 namespace MessageBoard.Controllers
 {
     
@@ -38,7 +41,7 @@ namespace MessageBoard.Controllers
                 }
                 else
                 {
-                    Session["UserId"] = guid.Value;
+                    Session["UserId"] = guid;
                     return RedirectToAction("Index", "Home");
                 }
             }

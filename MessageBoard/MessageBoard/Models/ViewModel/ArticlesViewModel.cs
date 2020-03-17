@@ -15,6 +15,8 @@ namespace MessageBoard.Models.ViewModel
         public string PostBy { get; set; }
 
         [Display(Name = "留言")]
+        [MaxLength(20)]
+        [Required(AllowEmptyStrings = false)]
         public string Title { get; set; }
 
         [Display(Name = "發文日期")]

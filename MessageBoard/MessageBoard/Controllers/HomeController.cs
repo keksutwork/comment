@@ -9,13 +9,8 @@ namespace MessageBoard.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+       public ActionResult Index()
         {
-            return View();
-        }
-
-       public ActionResult MessageBoard()
-        {   
             IArticleReader reader = ArticleDataControl.CreateArticleReader();
             IEnumerable<ArticlesViewModel> model = reader.GetArticles(50);
             return View(model);

@@ -12,6 +12,7 @@
     <div class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <span>@Html.ActionLink("留言板", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</span>
+            <span>@Html.ActionLink("管理留言", "Index", "Backend", new { area = "" }, new { @class = "navbar-brand" })</span>
             @if (string.IsNullOrEmpty(Convert.ToString(Session["UserId"])))
             {
                  <span>@Html.ActionLink("登入", "Login", "Login", new { area = "" }, new { @class = "navbar-brand" }) @Html.ActionLink("註冊", "Register", "Login", new { area = "" }, new { @class = "navbar-brand" })</span>   

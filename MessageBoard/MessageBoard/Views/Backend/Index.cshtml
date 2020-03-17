@@ -43,8 +43,8 @@
                     @Html.DisplayFor(modelItem => item.PostDate)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new { articleId = item.ArticleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { articleId = item.ArticleId })
                 </td>
             </tr>
         }

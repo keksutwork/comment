@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+
 namespace MessageBoard.Models.ArticleDataModel
 {
     public class LocalArticleReader : IArticleReader
@@ -42,6 +44,21 @@ namespace MessageBoard.Models.ArticleDataModel
                         };
 
             return query.ToList();
+        }
+
+        ArticlesViewModel IArticleReader.GetArticlesById(int articleId)
+        {
+            var query = from article in db.ArticleData
+                        join user in db.UserAccount on article.PostBy equals user.UserId
+                        where article.ArticleId == articleId
+                        select new ArticlesViewModel()
+                        {
+                            ArticleId = article.ArticleId,
+                            PostBy = article.PostBy.ToString(),
+                            Title = article.Title,
+                            PostDate = article.PostDate
+                        };
+            return query.FirstOrDefault();
         }
     }
 }

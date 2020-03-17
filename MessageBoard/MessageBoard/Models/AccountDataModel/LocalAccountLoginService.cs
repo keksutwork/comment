@@ -10,7 +10,6 @@ namespace MessageBoard.Models.AccountDataModel
         Guid? IAccountLoginService.Login(LoginViewModel AccountData)
         {
             MessageDbEntities dbEntities = new MessageDbEntities();
-
             //使用SHA512加密 密碼
             string hashPassword = Hash.GetHashString(AccountData.AccountPassword);
 

@@ -8,5 +8,6 @@ namespace MessageBoard.Models.ArticleDataModel
     {
         IEnumerable<ArticlesViewModel> GetArticles(int ArticleNumber);
         IEnumerable<ArticlesViewModel> GetArticlesByAuthor(Guid authorId);
+        ArticlesViewModel GetArticlesById(int articleId);
     }
 }
